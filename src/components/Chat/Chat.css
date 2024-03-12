@@ -1,0 +1,41 @@
+.partner-text-card {
+    border: solid 2px black;
+    border-radius: 15px;
+    background-color: white;
+    margin-right: 5%;
+    padding: 0.2%;
+}
+
+.my-text-card {
+    border: solid 2px red;
+    border-radius: 15px;
+    background-color: white;
+    margin-left: 10%;
+    padding: 0.2%;
+}
+
+.practice-text {
+    color: black;
+}
+
+.select-card {
+    border: solid 2px black;
+    border-radius: 15px;
+    background-color: white;
+    margin: 1%;
+    padding: 0.2%;
+}
+
+.select-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.edit-and-delete {
+    margin-top: 10px;
+}
+
+.chat-box {
+    max-height: 300px;
+    overflow: auto;
+}
