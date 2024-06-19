@@ -12,6 +12,7 @@ import FlashCard from './components/Practice/FlashCard.tsx';
 import Create from "./components/Create/Create.tsx";
 import ChatStart from './components/Chat/ChatStart.tsx';
 import AIFlashCard from './components/Chat/AIFlashCard.tsx';
+import Photo from './components/Photo/Photo.tsx';
 //import ChatContainer from './components/Chat/ChatContainer.tsx';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/chat" element={<ChatStart />} />
         <Route path="/chat/:auto" element={<AIFlashCard />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/photo" element={<Photo />} />
       </Routes>
     </div>
   );
