@@ -14,7 +14,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 
 const Photo = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [photo, setPhoto] = useState(bgImage1);
 
