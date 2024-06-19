@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // @ts-expect-error switch to TS
 import postSaying from "../../backend/postSaying";
 // @ts-expect-error switch to TS
