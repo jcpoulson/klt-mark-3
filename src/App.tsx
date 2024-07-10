@@ -13,7 +13,8 @@ import Create from "./components/Create/Create.tsx";
 import ChatStart from './components/Chat/ChatStart.tsx';
 import AIFlashCard from './components/Chat/AIFlashCard.tsx';
 import Photo from './components/Photo/Photo.tsx';
-//import ChatContainer from './components/Chat/ChatContainer.tsx';
+import Progress from './components/Progress/Progress.tsx';
+import Session from './components/Practice/Session.tsx';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         <Route path="/chat/:auto" element={<AIFlashCard />} />
         <Route path="/create" element={<Create />} />
         <Route path="/photo" element={<Photo />} />
+        <Route path="/progress" element={<Progress />} />
+        {/* Maybe a session route/feature that does a 100 cards as part of a session */}
+        <Route path="/session" element={<Session />} />
       </Routes>
     </div>
   );

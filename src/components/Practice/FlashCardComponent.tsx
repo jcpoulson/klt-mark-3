@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // @ts-expect-error switch to TS
 import getRandomPhoto from '../../backend/getRandomPhoto';
+// @ts-expect-error switch to TS
+import progressIncrement from "../../backend/progress/progressIncrement";
 
 import "../../App.css";
 import "./Practice.css";
 
 import { Button, Fab } from "@mui/material";
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -18,9 +22,10 @@ type Props = {
     refresh: any;
     setEdit: any;
     handleDeleteOpen: any
+    incrementSessionCount?: () => void;
 }
 
-const FlashCardComponent: React.FC<Props> = ({ saying, answer, showAnswer, setShowAnswer, setPhoto, refresh, setEdit, handleDeleteOpen }) => {
+const FlashCardComponent: React.FC<Props> = ({ saying, answer, showAnswer, setShowAnswer, setPhoto, refresh, setEdit, handleDeleteOpen, incrementSessionCount }) => {
   return (
     <>
         <div className="practice-text-card">
@@ -37,11 +42,33 @@ const FlashCardComponent: React.FC<Props> = ({ saying, answer, showAnswer, setSh
             }
 
             <Button variant="contained" size="large" onClick={() => setShowAnswer(true)}>Check</Button>
-            <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={async () => {
-                getRandomPhoto().then((res: any) => setPhoto(res));
-                setShowAnswer(false);
-                await refresh();
-            }}>Next</Button>
+
+            {
+                showAnswer === true ?
+                <div className="progress-items">
+                    <Fab size="large" color="success" onClick={async () => {
+                        getRandomPhoto().then((res: any) => setPhoto(res));
+                        setShowAnswer(false);
+                        if (incrementSessionCount) {
+                            // @ts-ignore
+                            incrementSessionCount()
+                        }
+                        await progressIncrement();
+                        await refresh();
+                    }}>
+                        <CheckIcon />
+                    </Fab>
+                    <Fab size="large" color="error" onClick={async () => {
+                        getRandomPhoto().then((res: any) => setPhoto(res));
+                        setShowAnswer(false);
+                        await refresh();
+                    }}>
+                        <CloseIcon />
+                    </Fab>
+                </div>
+                :
+                null
+            }
 
 
             <div className="edit-and-delete">

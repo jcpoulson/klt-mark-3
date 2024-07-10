@@ -21,13 +21,14 @@ const Home: React.FC = () => {
       <header className="App-header" style={{ backgroundImage: `url(${photo})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center center" }}>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div className="home-text-card">
-          <p>Hello There, Welcome to KLT - Mark III</p>
+          <p>Hello There, Welcome to KLT - Mark IV</p>
         </div>
         <div className="home-text-card">
           <p>안녕하세요, 한국어 훈련자 예요</p>
         </div>
 
-        <Button variant="contained" size="large" onClick={() => navigate('/select')}>Flash Cards</Button>
+        <Button variant="contained" size="large" onClick={() => navigate('/select')}>Free Form Flash Cards</Button>
+        <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={() => navigate('/session')}>Start Session</Button>
         <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={() => navigate('/create')}>Create</Button>
         <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={() => navigate('/chat')}>Chat with AI</Button>
       </header>
