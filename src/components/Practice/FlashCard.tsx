@@ -1,4 +1,4 @@
-import { useState, useEffect, SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // @ts-expect-error switch to TS
 import getRandomSaying from "../../backend/db";
@@ -28,14 +28,14 @@ const FlashCard: React.FC = () => {
     const handleDeleteClose = () => setDeleteOpen(false);
 
     useEffect(() => {
-        getRandomSaying(level).then((res: { english: SetStateAction<string>; korean: SetStateAction<string>; }) => {
+        getRandomSaying(level).then((res: { english: any; korean: any; }) => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
     }, [level]);
 
     async function refresh() {
-        getRandomSaying(level).then((res: { english: SetStateAction<string>; korean: SetStateAction<string>; }) => {
+        getRandomSaying(level).then((res: { english: any; korean: any; }) => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
