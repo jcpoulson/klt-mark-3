@@ -49,22 +49,26 @@ const Session: React.FC = () => {
 
     async function getSessionItem() {
         // const possibleGroupings = [getRandomSaying, generateRandomSaying];
-        const possibleGroupings = [getRandomSaying] // For the time being, the AI cards are not important
-        const selectedFunction = possibleGroupings[Math.floor(Math.random() * possibleGroupings.length)];
+        // const possibleGroupings = [getRandomSaying] // For the time being, the AI cards are not important
+        // const selectedFunction = possibleGroupings[Math.floor(Math.random() * possibleGroupings.length)];
         
-        if (selectedFunction.name === "getRandomSaying") {
-            const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
-            const calledFunction = await selectedFunction(randomLevel);
-            return calledFunction
-        } else {
-            const calledFunction = await selectedFunction();
-            const formattedAiResponse = {
-                english: calledFunction.translation,
-                korean: calledFunction.sentence,
-                level: "AI"
-            }
-            return formattedAiResponse;
-        }
+        // if (selectedFunction.name === "getRandomSaying") {
+        //     const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
+        //     const calledFunction = await selectedFunction(randomLevel);
+        //     return calledFunction
+        // } else {
+        //     const calledFunction = await selectedFunction();
+        //     const formattedAiResponse = {
+        //         english: calledFunction.translation,
+        //         korean: calledFunction.sentence,
+        //         level: "AI"
+        //     }
+        //     return formattedAiResponse;
+        // }
+
+        const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
+        const calledFunction = await getRandomSaying(randomLevel);
+        return calledFunction
     }
 
     useEffect(() => {
