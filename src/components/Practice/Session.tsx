@@ -2,7 +2,7 @@ import { useState, useEffect, SetStateAction } from 'react';
 import { useParams } from 'react-router-dom';
 // @ts-expect-error switch to TS
 import getRandomSaying from "../../backend/db";
-import generateRandomSaying from '../../backend/AI/generateRandomSaying.ts';
+// import generateRandomSaying from '../../backend/AI/generateRandomSaying.ts';
 
 import "../../App.css";
 import "./Practice.css";
