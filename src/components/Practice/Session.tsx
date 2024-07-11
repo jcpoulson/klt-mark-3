@@ -47,39 +47,39 @@ const Session: React.FC = () => {
     const handleDeleteOpen = () => setDeleteOpen(true);
     const handleDeleteClose = () => setDeleteOpen(false);
 
-    async function getSessionItem() {
-        // const possibleGroupings = [getRandomSaying, generateRandomSaying];
-        // const possibleGroupings = [getRandomSaying] // For the time being, the AI cards are not important
-        // const selectedFunction = possibleGroupings[Math.floor(Math.random() * possibleGroupings.length)];
+    // async function getSessionItem() {
+    //     // const possibleGroupings = [getRandomSaying, generateRandomSaying];
+    //     // const possibleGroupings = [getRandomSaying] // For the time being, the AI cards are not important
+    //     // const selectedFunction = possibleGroupings[Math.floor(Math.random() * possibleGroupings.length)];
         
-        // if (selectedFunction.name === "getRandomSaying") {
-        //     const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
-        //     const calledFunction = await selectedFunction(randomLevel);
-        //     return calledFunction
-        // } else {
-        //     const calledFunction = await selectedFunction();
-        //     const formattedAiResponse = {
-        //         english: calledFunction.translation,
-        //         korean: calledFunction.sentence,
-        //         level: "AI"
-        //     }
-        //     return formattedAiResponse;
-        // }
+    //     // if (selectedFunction.name === "getRandomSaying") {
+    //     //     const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
+    //     //     const calledFunction = await selectedFunction(randomLevel);
+    //     //     return calledFunction
+    //     // } else {
+    //     //     const calledFunction = await selectedFunction();
+    //     //     const formattedAiResponse = {
+    //     //         english: calledFunction.translation,
+    //     //         korean: calledFunction.sentence,
+    //     //         level: "AI"
+    //     //     }
+    //     //     return formattedAiResponse;
+    //     // }
 
-        const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
-        const calledFunction = await getRandomSaying(randomLevel);
-        return calledFunction
-    }
+    //     const randomLevel = ["2", "3"][Math.floor(Math.random() * 2)];
+    //     const calledFunction = await getRandomSaying(randomLevel);
+    //     return calledFunction
+    // }
 
     useEffect(() => {
-        getSessionItem().then((res: { english: any; korean: any; }) => {
+        getRandomSaying(["2", "3"][Math.floor(Math.random() * 2)]).then((res: { english: any; korean: any; }) => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
     }, [level]);
 
     async function refresh() {
-        getSessionItem().then((res: { english: any; korean: any; }) => {
+        getRandomSaying(["2", "3"][Math.floor(Math.random() * 2)]).then((res: { english: any; korean: any; }) => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
