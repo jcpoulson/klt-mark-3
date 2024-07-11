@@ -5,6 +5,8 @@ import { useState } from 'react';
 import postSaying from "../../backend/postSaying";
 // @ts-expect-error switch to TS
 import getRandomPhoto from '../../backend/getRandomPhoto';
+// @ts-expect-error switch to TS
+import uploadPhoto from "../../backend/uploadPhoto";
 
 import "../../App.css";
 import styles from "./photo.module.css"
@@ -17,6 +19,7 @@ const Photo = () => {
     // const navigate = useNavigate();
 
     const [photo, setPhoto] = useState(bgImage1);
+    const [file, setFile] = useState<File>();
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0] || null; // Get the first selected file or null
@@ -24,6 +27,7 @@ const Photo = () => {
         if (file) {
             const newObjectUrl = URL.createObjectURL(file);
             setPhoto(newObjectUrl);
+            setFile(file);
         }
       };
 
@@ -40,7 +44,10 @@ const Photo = () => {
                     <input type='file' className={styles.visuallyHiddenInput} onChange={handleFileChange} />
                 </Button>
 
-            <Button variant="contained" size="large" style={{ marginTop: "1%" }}>Submit</Button>
+            <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={() => {
+                uploadPhoto(file, file?.name);
+                alert("Photo uploaded");
+            }}>Submit</Button>
         </header>
     )
 }

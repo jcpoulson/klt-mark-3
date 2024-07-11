@@ -48,7 +48,8 @@ const Session: React.FC = () => {
     const handleDeleteClose = () => setDeleteOpen(false);
 
     async function getSessionItem() {
-        const possibleGroupings = [getRandomSaying, generateRandomSaying];
+        // const possibleGroupings = [getRandomSaying, generateRandomSaying];
+        const possibleGroupings = [getRandomSaying] // For the time being, the AI cards are not important
         const selectedFunction = possibleGroupings[Math.floor(Math.random() * possibleGroupings.length)];
         
         if (selectedFunction.name === "getRandomSaying") {
