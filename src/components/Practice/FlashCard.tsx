@@ -7,7 +7,7 @@ import "../../App.css";
 import "./Practice.css";
 import bgImage1 from "../../assets/img/korea-bg-1.jpg";
 
-import FlashCardComponent from './FlashCardComponent.tsx';
+// import FlashCardComponent from './FlashCardComponent.tsx';
 import EditFlashCard from '../Create/EditFlashCard.tsx';
 import DeleteModal from '../Create/DeleteModal.tsx';
 import FlashCardMk2 from './FlashCardMk2.tsx';
@@ -19,13 +19,13 @@ const FlashCard: React.FC = () => {
     const [answer, setAnswer] = useState("Answer - In - Korean");
     const [photo, setPhoto] = useState(bgImage1);
 
-    const [showAnswer, setShowAnswer] = useState(false);
-    const [edit, setEdit] = useState(false);
+    // const [showAnswer, setShowAnswer] = useState(false);
+    const [edit] = useState(false);
 
 
     // Delete Modal
     const [deleteOpen, setDeleteOpen] = useState(false);
-    const handleDeleteOpen = () => setDeleteOpen(true);
+    // const handleDeleteOpen = () => setDeleteOpen(true);
     const handleDeleteClose = () => setDeleteOpen(false);
 
     useEffect(() => {
