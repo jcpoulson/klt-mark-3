@@ -24,7 +24,7 @@ export default function Header() {
               <Home />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              KLT - Mark IV
+              KLT - Mark V
             </Typography>
             <IconButton
               size="large"

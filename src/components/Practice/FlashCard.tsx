@@ -10,6 +10,7 @@ import bgImage1 from "../../assets/img/korea-bg-1.jpg";
 import FlashCardComponent from './FlashCardComponent.tsx';
 import EditFlashCard from '../Create/EditFlashCard.tsx';
 import DeleteModal from '../Create/DeleteModal.tsx';
+import FlashCardMk2 from './FlashCardMk2.tsx';
 
 const FlashCard: React.FC = () => {
     const { level } = useParams();
@@ -47,7 +48,8 @@ const FlashCard: React.FC = () => {
                 edit ?
                     <EditFlashCard saying={saying} answer={answer} levelProp={level} />
                 :
-                    <FlashCardComponent saying={saying} answer={answer} showAnswer={showAnswer} setShowAnswer={setShowAnswer} setPhoto={setPhoto} refresh={refresh} setEdit={setEdit} handleDeleteOpen={handleDeleteOpen} />
+                    // <FlashCardComponent saying={saying} answer={answer} showAnswer={showAnswer} setShowAnswer={setShowAnswer} setPhoto={setPhoto} refresh={refresh} setEdit={setEdit} handleDeleteOpen={handleDeleteOpen} />
+                    <FlashCardMk2 saying={saying} answer={answer} refresh={refresh} setPhoto={setPhoto} />
             }
             <DeleteModal deleteOpen={deleteOpen} handleDeleteClose={handleDeleteClose} saying={saying} answer={answer} levelProp={level} />
         </div>
