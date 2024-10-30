@@ -2,8 +2,6 @@
 import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 // @ts-expect-error switch to TS
-import postSaying from "../../backend/postSaying";
-// @ts-expect-error switch to TS
 import getRandomPhoto from '../../backend/getRandomPhoto';
 // @ts-expect-error switch to TS
 import uploadPhoto from "../../backend/uploadPhoto";

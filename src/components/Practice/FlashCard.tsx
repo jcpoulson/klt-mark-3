@@ -29,14 +29,16 @@ const FlashCard: React.FC = () => {
     const handleDeleteClose = () => setDeleteOpen(false);
 
     useEffect(() => {
-        getRandomSaying(level).then((res: { english: any; korean: any; }) => {
+        const parsedLevel = parseInt(level as string);
+        getRandomSaying(parsedLevel).then((res: { english: any; korean: any; }) => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
     }, [level]);
 
     async function refresh() {
-        getRandomSaying(level).then((res: { english: any; korean: any; }) => {
+        const parsedLevel = parseInt(level as string);
+        getRandomSaying(parsedLevel).then((res: { english: any; korean: any; }) => {
             setSaying(res.english);
             setAnswer(res.korean);
         })

@@ -43,7 +43,7 @@ const Create = () => {
                     english: english,
                     korean: korean,
                     level: level
-                }, level.toString());
+                });
                 navigate('/home');
             }}>Submit</Button>
         </header>
