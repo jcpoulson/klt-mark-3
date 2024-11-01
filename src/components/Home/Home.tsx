@@ -8,7 +8,7 @@ import getRandomPhoto from '../../backend/getRandomPhoto';
 
 import { Button } from "@mui/material";
 // @ts-expect-error switch to TS
-import { performMigration } from "../../backend/migration.js"
+import { performMigration, testConnection } from "../../backend/migration.js"
 
 const Home: React.FC = () => {
   const navigate = useNavigate();

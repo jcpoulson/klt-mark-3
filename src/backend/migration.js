@@ -1,19 +1,30 @@
 // This is for moving all the data from a level, to the new DB structure
 
 import { db } from "./firebase";
-import { doc, getDoc, addDoc, collection } from "firebase/firestore"
+import { doc, getDoc, getDocs, addDoc, collection, query, where } from "firebase/firestore"
 
 const docRef = doc(db, "levels", "1"); // Hard coded level, make sure to change before running function
 const docSnap = await getDoc(docRef);
 
-const allSayings = docSnap.data().sayings;
+// const allSayings = docSnap.data().sayings;
+const q = query(
+  collection(db, "sayings"), 
+  where("level", "==", 3),
+);
 
-async function addSaying(english, korean, level) {
+async function testConnection() {
+  // console.log(q);
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach(doc => console.log(doc.data()));
+}
+
+async function addSaying(english, korean, index) {
     try {
-      const docRef = await addDoc(collection(db, "legacyData"), {
+      const docRef = await addDoc(collection(db, "level-3"), {
         english: english,
         korean: korean,
-        level: level
+        countID: index
       });
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -21,11 +32,17 @@ async function addSaying(english, korean, level) {
 }
 
 async function performMigration() {
-    allSayings.forEach(saying => {
-        addSaying(saying.english, saying.korean, saying.level)
+    const querySnapshot = await getDocs(q);
+
+    let index = 0;
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      addSaying(data.english, data.korean, index);
+      index++
     })
 }
 
 export {
-    performMigration
+    performMigration, 
+    testConnection
 }
