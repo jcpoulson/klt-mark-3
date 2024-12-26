@@ -10,9 +10,10 @@ type Props = {
     answer: string;
     refresh: () => void;
     setPhoto: (arg: any) => void;
+    incrementSessionCount?: () => void; 
 }
 
-const FlashCardMk2: React.FC<Props> = ({ saying, answer, refresh, setPhoto }) => {
+const FlashCardMk2: React.FC<Props> = ({ saying, answer, refresh, setPhoto, incrementSessionCount }) => {
     const [seeThroughMode, setSeeThroughMode] = useState(false);
     const [check, setCheck] = useState(false);
 
@@ -44,6 +45,9 @@ const FlashCardMk2: React.FC<Props> = ({ saying, answer, refresh, setPhoto }) =>
                     <FlipCameraAndroid />
                 </Fab>
                 <Fab size='small' sx={{ margin: "5px"}} onClick={() => {
+                    if (incrementSessionCount !== undefined) {
+                        incrementSessionCount()
+                    }
                     refresh();
                     getRandomPhoto().then((res: any) => setPhoto(res))
                 }}>

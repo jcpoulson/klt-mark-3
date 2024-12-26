@@ -9,6 +9,7 @@ import "./Practice.css";
 import bgImage1 from "../../assets/img/korea-bg-1.jpg";
 
 import FlashCardComponent from './FlashCardComponent.tsx';
+import FlashCardMk2 from './FlashCardMk2.tsx';
 import EditFlashCard from '../Create/EditFlashCard.tsx';
 import DeleteModal from '../Create/DeleteModal.tsx';
 import SessionCard from './SessionCard.tsx';
@@ -95,7 +96,8 @@ const Session: React.FC = () => {
                 edit ?
                     <EditFlashCard saying={saying} answer={answer} levelProp={level} />
                 :
-                    <FlashCardComponent saying={saying} answer={answer} showAnswer={showAnswer} setShowAnswer={setShowAnswer} setPhoto={setPhoto} refresh={refresh} setEdit={setEdit} handleDeleteOpen={handleDeleteOpen} incrementSessionCount={incrementSessionCount} />
+                    // <FlashCardComponent saying={saying} answer={answer} showAnswer={showAnswer} setShowAnswer={setShowAnswer} setPhoto={setPhoto} refresh={refresh} setEdit={setEdit} handleDeleteOpen={handleDeleteOpen} incrementSessionCount={incrementSessionCount} />
+                    <FlashCardMk2 saying={saying} answer={answer} refresh={refresh} setPhoto={setPhoto} incrementSessionCount={incrementSessionCount} />
             }
             <DeleteModal deleteOpen={deleteOpen} handleDeleteClose={handleDeleteClose} saying={saying} answer={answer} levelProp={level} />
         </div>
